@@ -1,0 +1,21 @@
+// content.js
+
+// Wait for the page to load
+window.addEventListener("load", () => {
+  // Find all "citation needed" spans
+  const citations = document.querySelectorAll("sup a[title*='citation needed']");
+
+  if (citations.length === 0) {
+    console.log("No 'citation needed' tags found on this page.");
+    return;
+  }
+
+  citations.forEach(citation => {
+    // Highlight the parent text
+    citation.parentElement.style.backgroundColor = "yellow";
+    citation.parentElement.style.padding = "2px";
+    citation.parentElement.style.borderRadius = "3px";
+  });
+
+  console.log(`Highlighted ${citations.length} 'citation needed' notes.`);
+});
