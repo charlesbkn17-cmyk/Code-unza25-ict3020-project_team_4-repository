@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Wikipedia Missing Info Detector",
+    "version": "1.0",
+    "description": "Detects missing information (like citations, empty sections) on Wikipedia articles.",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://en.wikipedia.org/wiki/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://en.wikipedia.org/wiki/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
